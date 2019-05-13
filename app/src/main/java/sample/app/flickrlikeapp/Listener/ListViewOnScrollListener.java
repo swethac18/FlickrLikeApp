@@ -23,6 +23,7 @@ public class ListViewOnScrollListener implements AbsListView.OnScrollListener {
         this.recentViewTitle = textView;
     }
 
+
     public void onScrollStateChanged(AbsListView view, int scrollState) {
         final ListView lw = mListView;
 
@@ -37,6 +38,10 @@ public class ListViewOnScrollListener implements AbsListView.OnScrollListener {
 
             mLastFirstVisibleItem = currentFirstVisibleItem;
 
+            /**
+             * If scrolling down, remove the title Text View and banner text view so real estate is saved
+             * If scrolling up , make the text view and banner visible.
+             */
             if (mIsScrollingUp) {
                 quickReturnBanner.setVisibility(View.VISIBLE);
                 recentViewTitle.setVisibility(View.VISIBLE);
@@ -47,22 +52,6 @@ public class ListViewOnScrollListener implements AbsListView.OnScrollListener {
             }
         }
     }
-
-    private void removeOrRetainBannerAndTitle(int scrollState) {
-        if (scrollState == SCROLL_STATE_FLING && !mIsScrollingUp ) {
-            quickReturnBanner.setVisibility(View.GONE);
-            recentViewTitle.setVisibility(View.GONE);
-        } else if (scrollState == SCROLL_STATE_TOUCH_SCROLL) {
-            if (mIsScrollingUp) {
-                quickReturnBanner.setVisibility(View.VISIBLE);
-                recentViewTitle.setVisibility(View.VISIBLE);
-            } else {
-                quickReturnBanner.setVisibility(View.GONE);
-                recentViewTitle.setVisibility(View.GONE);
-            }
-        }
-    }
-
 
 
     @Override

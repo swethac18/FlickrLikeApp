@@ -1,18 +1,10 @@
 package sample.app.flickrlikeapp.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Parcelable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,8 +46,6 @@ public class PhotoListAdapter extends ArrayAdapter<Photo> {
             holder = new ViewHolder();
             holder.title = (TextView) convertView.findViewById(R.id.tv_name);
             holder.image = (ImageView) convertView.findViewById(R.id.iv_photo);
-
-            // The tag can be any Object, this just happens to be the ViewHolder
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -66,7 +56,7 @@ public class PhotoListAdapter extends ArrayAdapter<Photo> {
         String id = photo.getId();
         String server = photo.getServer();
 
-        // System.out.println(title);
+        // construct the URL for loading in picasso in View Holder
         final String URL =  "https://farm" + farm.toString() + ".staticflickr.com/" + server + "/" + id + "_" + secret + "_z.jpg";
         final IImageClickListener imageClickListener = this.listener;
         if (photo != null) {
@@ -76,12 +66,6 @@ public class PhotoListAdapter extends ArrayAdapter<Photo> {
                 @Override
                 public void onClick(View view) {
                     imageClickListener.onListItemImageClicked(position);
-                  /*  Log.i("inside","onPhotoClick");
-                    Intent startDetails = new Intent(mContext,DetailsActivity.class);
-                    startDetails.putExtra("ImageURL",URL);
-                    startDetails.putExtra(Intent.EXTRA_TEXT, (Parcelable) allitems.get(position));
-                    mContext.startActivity(startDetails);;
-                    */
                 }
             });
         }

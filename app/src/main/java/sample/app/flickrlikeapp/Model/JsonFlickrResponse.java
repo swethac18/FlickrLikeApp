@@ -5,7 +5,7 @@ package sample.app.flickrlikeapp.Model;
  */
 
 
-public class Example {
+public class JsonFlickrResponse {
 
     private Photos photos;
     private String stat;

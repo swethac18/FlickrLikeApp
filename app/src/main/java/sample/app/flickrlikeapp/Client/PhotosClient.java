@@ -4,7 +4,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Retrofit Client
+ * Retrofit Client to fetch photos from Flickr getRecent method
+ * endpoint: api.flickr.com
+ * method: getRecent
  */
 public class PhotosClient {
 

@@ -16,6 +16,9 @@ import java.util.List;
 
 import sample.app.flickrlikeapp.Model.Photo;
 
+/**
+ * This activity shows the details of the image such as owner, title
+ */
 public class DetailsActivity extends AppCompatActivity {
 
     Photo mPhoto;
@@ -50,6 +53,7 @@ public class DetailsActivity extends AppCompatActivity {
         Picasso.with(this)
                 .load(mImageURL)
                 .placeholder(R.drawable.placeholder)
+                .fit()
                 .error(R.drawable.errorimage)
                 .into(mPhotoImage);
         mTitleName.setText(getString(R.string.title)+mPhoto.getTitle());
