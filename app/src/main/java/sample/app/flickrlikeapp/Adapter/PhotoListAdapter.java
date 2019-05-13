@@ -20,18 +20,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import sample.app.flickrlikeapp.DetailsActivity;
 import sample.app.flickrlikeapp.Listener.IImageClickListener;
-import sample.app.flickrlikeapp.MainActivity;
 import sample.app.flickrlikeapp.Model.Photo;
 import sample.app.flickrlikeapp.R;
-
-
-/**
- * Created by swetha on 5/12/19.
- */
-
-
 
 public class PhotoListAdapter extends ArrayAdapter<Photo> {
 

@@ -4,16 +4,15 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by swetha on 5/11/19.
+ * Retrofit Client
  */
-
 public class PhotosClient {
 
     private static Retrofit retrofit;
     private static final String BASE_URL="https://api.flickr.com/";
 
     public static String getKey(){
-        return "fee10de350d1f31d5fec0eaf330d2dba";
+        return "";
     }
 
     public static String getMethod(){
